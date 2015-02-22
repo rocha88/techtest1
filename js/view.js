@@ -58,9 +58,10 @@ define(function () {
         this.clearResults();
 
         if (this.resultsNode) {
-            for (var i = 0; i < results.length; i++) {
+            for (var denom in results) {
                 var item = this.doc.createElement('li');
-                item.appendChild(this.doc.createTextNode(results[i]));
+                var label = denom;
+                item.appendChild(this.doc.createTextNode(label));
                 this.resultsNode.appendChild(item);
             }
         }
