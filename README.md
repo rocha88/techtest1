@@ -1,4 +1,4 @@
-## Technical Test - JR
+## Technical Test
 
 ### Version 0.0.1
 
