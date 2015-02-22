@@ -19,7 +19,7 @@ define(function () {
         ['5p', 5],
         ['2p', 2],
         ['1p', 1]
-    ]
+    ];
 
     /**
      * Returns an object representing the smallest number of coins that can
@@ -51,7 +51,7 @@ define(function () {
      */
     function maxCoins(penceLimit, denom) {
         return Math.floor(penceLimit / denom);
-    };
+    }
 
 
     // Return constructor
