@@ -42,7 +42,7 @@ define(function () {
     /**
      * Callback for the input event handler
      * @callback View-inputCallback
-     * @param {number} amount The amount that the user entered
+     * @param {number} amount The amount string that the user entered
      */
 
     /**

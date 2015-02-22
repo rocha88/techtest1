@@ -24,12 +24,12 @@ define(function () {
     /**
      * Returns an object representing the smallest number of coins that can
      * represent the specified value
-     * @param {number} value The amount of pence to calculate coins for
+     * @param {number} amount The amount in pence to calculate coins for
      * @return TBD
      */
     Cashier.prototype.coinsFor = function (amount) {
         // TODO Verify input is a positive integer
-        var coins = {};
+        var coinCount = {};
 
         // Start with the largest denomination and work smaller
         for (var i = 0; amount > 0 && i < Cashier.DENOMS.length; i++) {
@@ -37,12 +37,12 @@ define(function () {
             var coinValue = Cashier.DENOMS[i][1];
             var numCoins = maxCoins(amount, coinValue);
             if (numCoins > 0) {
-                coins[coinName] = numCoins;
+                coinCount[coinName] = numCoins;
                 amount = amount - coinValue * numCoins;
             }
         }
 
-        return coins;
+        return coinCount;
     };
 
     /**
