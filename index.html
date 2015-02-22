@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Coin Genie</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <section id="coingenie">
+        <header>
+          <h1>Coin Genie</h1>
+        </header>
+        <section class="instructions">
+          <h2>Instructions</h2>
+          <p>Need to give a customer their change but don't want to weigh them down? No problem! Simply enter the amount of money in the below and click 'Calculate' or press <i>Enter</i>.<p>
+        </section>
+        <section class="input">
+          <h2>Input</h2>
+          <form>
+            <label for="amount">Amount:</label>
+            <input id="amount" type="text" autofocus placeholder="e.g. £2.49 or 48p" pattern="£?\d+\.?\d*p?">
+            <input type="submit" value="Calculate!">
+          </form>
+        </section>
+        <section class="output">
+          <h2>Results</h2>
+          <p>We have calculated the following coins are required:</p>
+          <input type="button" value="Show them!" id="showBtn">
+          <div id="coins">
+            <!--
+            <img src="images/2pounds.gif">
+            <img src="images/pound.gif">
+            <img src="images/20p.jpg">
+            <img src="images/20p.jpg">
+            -->
+          </div>
+          <!--
+          <dl class="coinlist">
+            <dt>£1</dt>
+            <dd>1</dd>
+            <dt>20p</dt>
+            <dd>2</dd>
+            <dt>2p</dt>
+            <dd>1</dd>
+          </dl>
+          -->
+        </section>
+        <aside id="whatsthis">
+          <h2>What's this?</h2>
+          <p>This app is a proposed solution to <a href="https://gist.github.com/jcleveley/4067576">this technical test</a>, by James Donohue.</p>
+        </aside>
+      </section>
+      <footer>
+        <p>Last updated: <time>2015-02-21</time></p>
+        <address>Questions or comments? Send an e-mail to <a href="mailto:jamespatrickdonohue@gmail.com">the author</a>.</address>
+      </footer>
+    </div>
+    <script src="js/animate.js"></script>
+  </body>
+</html>
