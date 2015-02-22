@@ -1,8 +1,11 @@
-define(function() {
+define(['cashier'], function (Cashier) {
     // Enable form, since JavaScript is working
     var form = document.getElementById('genieForm');
     for (var i = 0; i < form.elements.length; i++)
         form.elements[i].disabled = false;
+
+    cashier = new Cashier();
+    console.log(cashier.currency);
 
     document.getElementById('genieForm').addEventListener('submit', function (evt) {
         var coinsDiv = document.getElementById('coins');
