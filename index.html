@@ -11,28 +11,24 @@
         <h1>Coin Genie</h1>
       </header>
       <section class="main">
+        <noscript>
+          <p class="warning">Unfortunately this app requires JavaScript, which is switched off or unavailable in your browser. We hope to be able to provide a non-JavaScript alternative in the near future.</p>
+        </noscript>
         <section class="instructions">
           <h2>Instructions</h2>
           <p>Need to give a customer their change but don't want to weigh them down? No problem! Simply enter the amount of money in the below and click 'Calculate' or press <i>Enter</i>.<p>
         </section>
         <section class="input">
           <h2>Enter your amount</h2>
-          <form>
-            <input id="amount" type="text" autofocus placeholder="e.g. £2.49 or 48p" pattern="£?\d+\.?\d*p?">
-            <input type="submit" value="Calculate!">
+          <form id="genieForm">
+            <input id="amount" type="text" autofocus placeholder="e.g. £2.49 or 48p" pattern="£?\d+\.?\d*p?" disabled>
+            <input type="submit" id="calcBtn" value="Calculate!" disabled>
           </form>
         </section>
         <section class="output">
           <h2>Results</h2>
           <p>We have calculated the following coins are required:</p>
-          <div id="coins">
-            <ul>
-              <li>£2</li>
-              <li>£1</li>
-              <li>20p</li>
-              <li>20p</li>
-            </ul>
-          </div>
+          <ul id="coins"></ul>
         </section>
       </section>
       <aside class="whatsthis">
@@ -40,5 +36,6 @@
         <p>This app is a proposed solution to <a href="https://gist.github.com/jcleveley/4067576">this technical test</a>, by <address><a href="mailto:jamespatrickdonohue@gmail.com">James Donohue</a></address>.</p>
       </aside>
     </section>
+    <script src="js/app.js"></script>
   </body>
 </html>
