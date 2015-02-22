@@ -1,23 +1,23 @@
 body {
   font-family: Tahoma, sans-serif;
-  background-color: #06799f;
+  background-color: #999;
 }
 
 .wrapper {
   width: 90%;
   margin: 0 5%;
   background-color: #ffffff;
-  box-shadow: 2em 1em 1.5em #216278;
 }
 
 #coingenie h1 {
   text-align: center;
-  background-color: #ff8300;
+  background-color: #444;
+  color: white;
   padding: 1.5em 0;
 }
 
 h2 {
-  color: #a65500;
+  color: #444;
 }
 
 #coingenie section, aside, footer {
@@ -25,34 +25,10 @@ h2 {
 }
 
 aside, aside h2, aside a {
-  background-color: #a65500;
+  background-color: #666;
   color: white;
 }
 
 aside {
   padding: 1em;
 }
-
-input:invalid {
-  outline: 2px solid red;
-}
-
-#coins img { 
-    -webkit-animation-name: spin; 
-    -webkit-animation-duration: 1s; 
-    animation-name: spin; 
-    animation-duration: 1s; 
-} 
-
-@-webkit-keyframes spin { 
-    0%   { -webkit-transform: rotateY(90deg); opacity: 0; } 
-    40%  { -webkit-transform: rotateY(-10deg); } 
-    70%  { -webkit-transform: rotateY(10deg); } 
-    100% { -webkit-transform: rotateY(0deg); opacity: 1; } 
-} 
-@keyframes spin { 
-    0%   { transform: rotateY(90deg); opacity: 0; } 
-    40%  { transform: rotateY(-10deg); } 
-    70%  { transform: rotateY(10deg); } 
-    100% { transform: rotateY(0deg); opacity: 1; } 
-} 
