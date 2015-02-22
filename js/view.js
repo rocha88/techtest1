@@ -60,7 +60,7 @@ define(function () {
         if (this.resultsNode) {
             for (var denom in results) {
                 var item = this.doc.createElement('li');
-                var label = denom;
+                var label = denom + ' x ' + results[denom];
                 item.appendChild(this.doc.createTextNode(label));
                 this.resultsNode.appendChild(item);
             }
