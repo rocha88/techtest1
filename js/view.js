@@ -18,7 +18,7 @@ define(function () {
      */
     View.prototype.enableForm = function () {
         var form = this.doc.getElementById('genieForm');
-        for (var i = 0; i < form.elements.length; i++)
+        for (var i = 0; form != null && i < form.elements.length; i++)
             form.elements[i].disabled = false;
     };
 
@@ -28,9 +28,12 @@ define(function () {
      */
     View.prototype.onInput = function (handler) {
         var form = this.doc.getElementById('genieForm');
-        if (form) {
+        if (form != null) {
             form.addEventListener('submit', function (evt) {
-                handler(125);
+                var amount = this.elements['amount'].value;
+                handler(amount);
+
+                // Stop form from actually submitting
                 evt.preventDefault();
             }, false);
         }
@@ -46,7 +49,7 @@ define(function () {
      * Removes all child nodes from the results node
      */
     View.prototype.clearResults = function () {
-        while (this.resultsNode && this.resultsNode.lastChild)
+        while (this.resultsNode != null && this.resultsNode.lastChild)
             this.resultsNode.removeChild(this.resultsNode.lastChild);
     };
 
