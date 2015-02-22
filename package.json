@@ -1,0 +1,16 @@
+{
+  "name": "techtest1",
+  "version": "0.0.1",
+  "author": {
+    "name": "James Donohue",
+    "email": "jamespatrickdonohue@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rocha88/techtest1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "^0.11.0"
+  }
+}
