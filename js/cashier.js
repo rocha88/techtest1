@@ -10,7 +10,16 @@ define(function () {
      * The coin denominations available in this currency, in descending size.
      * NB includes 10p and 5p coins even though not explicitly required.
      */
-    Cashier.DENOMS = [200, 100, 50, 20, 10, 5, 2, 1];
+    Cashier.DENOMS = [
+        ['£2', 200],
+        ['£1', 100],
+        ['50p', 50],
+        ['20p', 20],
+        ['10p', 10],
+        ['5p', 5],
+        ['2p', 2],
+        ['1p', 1]
+    ]
 
     /**
      * Returns an object representing the smallest number of coins that can
@@ -19,16 +28,17 @@ define(function () {
      * @return TBD
      */
     Cashier.prototype.coinsFor = function (amount) {
-        // TODO check input is a positive integer
+        // TODO Verify input is a positive integer
         var coins = {};
 
         // Start with the largest denomination and work smaller
         for (var i = 0; amount > 0 && i < Cashier.DENOMS.length; i++) {
-            var denom = Cashier.DENOMS[i];
-            var qty = maxCoins(amount, denom);
-            if (qty > 0) {
-                coins[denom] = qty;
-                amount -= denom * qty;
+            var coinName = Cashier.DENOMS[i][0];
+            var coinValue = Cashier.DENOMS[i][1];
+            var numCoins = maxCoins(amount, coinValue);
+            if (numCoins > 0) {
+                coins[coinName] = numCoins;
+                amount = amount - coinValue * numCoins;
             }
         }
 
