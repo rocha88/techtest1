@@ -1,4 +1,4 @@
-## Technical Test - James Donohue
+## Technical Test - JR
 
 ### Version 0.0.1
 
