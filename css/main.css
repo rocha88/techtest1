@@ -48,11 +48,11 @@ input[type=text] {
 
 input[type=submit] {
   font-size: 1.8em;
-	background-color: #eeeeee;
-	border: 0.08em solid #dcdcdc;
+  background-color: #eeeeee;
+  border: 0.08em solid #dcdcdc;
   padding: 0.25em;
   margin-left: 0.5em;
-	border-radius: 6px;
+  border-radius: 6px;
 }
 
 #coins li {
