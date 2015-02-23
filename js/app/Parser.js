@@ -6,54 +6,42 @@ define(function() {
      */
     function CurrencyParser() { }
 
-    function ParseError() { }
-
-    var penceOnlyParser = function (str) {
-        var found = str.match(/^(\d+)p?$/);
-        if (found === null)
-            throw new ParseError();
-        else
-            return parseInt(found[1]);
-    };
-
-    var poundsOnlyParser = function (str) {
-        var found = str.match(/^£(\d+)p?$/);
-        if (found === null)
-            throw new ParseError();
-        else
-            return parseInt(found[1] * 100);
-    };
-
-    var poundsAndPenceParser = function (str) {
-        var found = str.match(/^£?(\d+(\.\d*))p?$/);
-        if (found === null)
-            throw new ParseError();
-        else
-            return Math.round(parseFloat(found[1]) * 100);
-    };
-
-    var parsers = [
-        penceOnlyParser,
-        poundsOnlyParser,
-        poundsAndPenceParser
+    /**
+     * Array of recognised currency formats, each with a regex pattern
+     * and a parser function which receives the first matched group.
+     */
+    var formats = [
+        {
+            // Just pence, with optional 'p'
+            pattern: /^(\d+)p?$/,
+            parser: function (str) { return parseInt(str); }
+        },
+        {
+            // Just pounds, with '£' and optional 'p'
+            pattern: /^£(\d+)p?$/,
+            parser: function (str) { return parseInt(str) * 100; }
+        },
+        {
+            // Pounds and pence, with decimal point, and optional '£' and/or 'p'
+            pattern: /^£?(\d+(\.\d*))p?$/,
+            parser: function (str) { return Math.round(parseFloat(str) * 100); }
+        },
     ];
 
     /**
-     * Parse the supplied string as a number of British pence
-     * @param {String} subject - The string to be parsed
-     * @returns {Number} The value of the string in pence
+     * Parse the specified string and return a number of pence Sterling
+     * @param {String} input - The string to be parsed
+     * @returns {Number} Value in pence, or undefined if parsing failed
      */
-    CurrencyParser.prototype.parseString = function(str) {
-        for (var i = 0; i < parsers.length; i++) {
-            try {
-                var parser = parsers[i];
-                return parser(str)
-            } catch (e) {
-                continue;
-            }
+    CurrencyParser.prototype.parseString = function(input) {
+        for (var i = 0; i < formats.length; i++) {
+            var format = formats[i];
+            var matches = input.match(format.pattern);
+            if (matches)
+                return format.parser(matches[1]);
         }
 
-        // Return undefined if no parser succeeded
+        // Return undefined if no format was matched
     };
 
     // Return constructor
