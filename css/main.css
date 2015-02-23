@@ -56,8 +56,8 @@ input[type=submit] {
 }
 
 #coins li {
-  width: 4em;
-  line-height: 4em;
+  min-width: 5em;
+  line-height: 5em;
   border: 0.2em solid black;
   border-radius: 50px;
   text-align: center;
