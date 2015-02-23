@@ -1,4 +1,4 @@
-define(['cashier', 'parser', 'view', 'domReady!'], function (Cashier, CurrencyParser, View, doc) {
+define(['app/Cashier', 'app/Parser', 'app/View', 'lib/domReady!'], function (Cashier, CurrencyParser, View, doc) {
     'use strict';
 
     var cashier = new Cashier();

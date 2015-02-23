@@ -6,11 +6,12 @@
 
     // Configure RequireJS to shim Jasmine
     require.config({
-        baseUrl: 'js',
+        baseUrl: 'spec',
         paths: {
-            'jasmine': '../lib/jasmine-2.1.3/jasmine',
-            'jasmine-html': '../lib/jasmine-2.1.3/jasmine-html',
-            'boot': '../lib/jasmine-2.1.3/boot'
+            'jasmine': '../js/lib/jasmine-2.1.3/jasmine',
+            'jasmine-html': '../js/lib/jasmine-2.1.3/jasmine-html',
+            'boot': '../js/lib/jasmine-2.1.3/boot',
+            'app': '../js/app',
         },
         shim: {
             'jasmine': {
@@ -29,7 +30,7 @@
 
     // Define all of your specs here. These are RequireJS modules.
     var specs = [
-        '../spec/parser_spec'
+        'parserSpec'
     ];
 
     // Load Jasmine - This will still create all of the normal Jasmine browser globals unless `boot.js` is re-written to use the

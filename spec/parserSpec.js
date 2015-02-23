@@ -1,4 +1,4 @@
-define(['parser'], function(CurrencyParser) {
+define(['app/Parser'], function(CurrencyParser) {
     'use strict';
 
     describe('CurrencyParser', function() {
