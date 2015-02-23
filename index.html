@@ -21,6 +21,9 @@
         </section>
         <section class="input">
           <h2>Enter your amount</h2>
+	  <div id="errors">
+            <p id="formatError" class="hidden">Sorry, that amount isn't valid. Please enter a number of pounds and/or pence.</p>
+          </div>
           <form id="genieForm">
             <input id="amount" type="text" autofocus placeholder="e.g. £2.49 or 48p" pattern="£?\d+\.?\d*p?" disabled>
             <input type="submit" id="calcBtn" value="Calculate!" disabled>

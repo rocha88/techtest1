@@ -11,8 +11,12 @@ define(
         //parser.addFormat(/^(\d+) pence$/, function (str) { return parseInt(str); });
 
         view.onInput(function (amountStr) {
+            view.hideErrors();
+
             var amountInPence = parser.parseString(amountStr);
-            //TODO handle strings that could not be parsed
+            if (!amountInPence)
+                view.showFormatError();
+
             var coins = cashier.coinsFor(amountInPence);
             view.setOutput(coins);
         });

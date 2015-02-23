@@ -1,4 +1,4 @@
-define(function () {
+define(['./DomUtils'], function (DomUtils) {
     'use strict';
 
     /**
@@ -8,7 +8,8 @@ define(function () {
      */
     function View(doc) {
         this.doc = doc;
-        this.resultsNode = this.doc.getElementById('coins');
+        this.resultsContainer = this.doc.getElementById('coins');
+        this.errorsContainer = this.doc.getElementById('errors');
 
         this.enableForm();
     }
@@ -46,11 +47,10 @@ define(function () {
      */
 
     /**
-     * Removes all child nodes from the results node
+     * Removes all results from the view
      */
     View.prototype.clearResults = function () {
-        while (this.resultsNode !== null && this.resultsNode.lastChild)
-            this.resultsNode.removeChild(this.resultsNode.lastChild);
+        DomUtils.removeAllChildren(this.resultsContainer);
     };
 
     /**
@@ -60,12 +60,31 @@ define(function () {
     View.prototype.setOutput = function (results) {
         this.clearResults();
 
-        if (this.resultsNode) {
-            for (var denom in results) {
-                var item = this.doc.createElement('li');
-                var label = denom + ' x ' + results[denom];
-                item.appendChild(this.doc.createTextNode(label));
-                this.resultsNode.appendChild(item);
+        if (this.resultsContainer) {
+            for (var coin in results) {
+                var label = coin + ' x ' + results[coin];
+                var item = DomUtils.createTextElement(this.doc, 'li', label);
+                this.resultsContainer.appendChild(item);
+            }
+        }
+    };
+
+    /**
+     * Display invalid format error
+     */
+    View.prototype.showFormatError = function () {
+        var error = document.getElementById('formatError');
+        if (error)
+            error.className = '';
+    };
+
+    /**
+     * Hide any validation error messages
+     */
+    View.prototype.hideErrors = function () {
+        if (this.errorsContainer) {
+            for (var i = 0; i < this.errorsContainer.children.length; i++) {
+                this.errorsContainer.children[i].className = 'hidden';
             }
         }
     };

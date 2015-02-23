@@ -50,7 +50,7 @@ define(function() {
      */
     CurrencyParser.prototype.addFormat = function(newPattern, newParser) {
         this._formats.push({ pattern: newPattern, parser: newParser });
-    }
+    };
 
     /**
      * Callback to parse a currency format

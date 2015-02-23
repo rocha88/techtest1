@@ -13,9 +13,13 @@ body {
   margin: 0;
 }
 
-p.error {
+#errors p, p.error {
   background-color: #faa;
   padding: 1em;
+}
+
+.hidden {
+  display: none;
 }
 
 h2 {
