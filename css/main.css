@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 
-.warning {
+p.error {
   background-color: #faa;
   padding: 1em;
 }
