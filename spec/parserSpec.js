@@ -37,10 +37,10 @@ define(['app/Parser'], function(CurrencyParser) {
         it('returns 0 for invalid string formats', function() {
             // As above
             // TODO assumption is that no error is thrown, we just get zero back
-            expect(parser.parseString('')).toEqual(0);
-            expect(parser.parseString('1x')).toEqual(0);
-            expect(parser.parseString('£1x.0p')).toEqual(0);
-            expect(parser.parseString('£p')).toEqual(0);
+            expect(parser.parseString('')).not.toBeDefined();
+            expect(parser.parseString('1x')).not.toBeDefined();
+            expect(parser.parseString('£1x.0p')).not.toBeDefined();
+            expect(parser.parseString('£p')).not.toBeDefined();
         });
     });
 });
